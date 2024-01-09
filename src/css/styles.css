@@ -39,4 +39,47 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
+  height: 100vh;
+  width: 100vw;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+  "nav main";
+}
+
+nav {
+  grid-area: nav;
+  background-color: var(--bg-color3);
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 100%;
+}
+
+main {
+  grid-area: main;
+  padding: 30px;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 200px minmax(800px, 100%);
+}
+
+section#todo-container {
+  grid-row: 2/-1;
+}
+
+ul, li {
+  text-decoration: none;
 }
