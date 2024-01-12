@@ -1,41 +1,39 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const rulesForStyles = {
   test: /\.css$/i,
-  use: ['style-loader', 'css-loader'],
-}
+  use: ["style-loader", "css-loader"],
+};
 
 const rulesForImages = {
   test: /\.(svg|png|jpg|gif)$/,
-  type: 'asset/resource',
+  type: "asset/resource",
   generator: {
-    filename: 'assets/img/[name][ext]'
-  }
-}
+    filename: "assets/img/[name][ext]",
+  },
+};
 
 const rulesForFonts = {
   test: /\.(woff|woff2|eot|ttf|otf)$/i,
-  type: 'asset/resource',
+  type: "asset/resource",
   generator: {
-    filename: 'assets/fonts/[name][ext]'
-  }
-}
+    filename: "assets/fonts/[name][ext]",
+  },
+};
 
-const rules = [rulesForStyles, rulesForImages, rulesForFonts]
+const rules = [rulesForStyles, rulesForImages, rulesForFonts];
 
 module.exports = {
-  entry: './src/index.js', 
+  entry: "./src/index.js",
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'build')
+    filename: "main.js",
+    path: path.resolve(__dirname, "build"),
   },
-  plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html' }),
-  ],
+  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
   module: { rules },
-  // devtool: 'source-map',
+  devtool: 'source-map',
   devServer: {
-     open: true
-  }
+    open: true,
+  },
 };

@@ -1,15 +1,9 @@
-import tasksData from "./tasks.js";
-
-const todoContainer = document.getElementById('todo-container');
-const list = document.querySelector('ul.list')
+import tasksData from "./data.js";
 
 const renderList = function () {
-  tasksData.forEach(task => {
-    const name = document.createElement('li');
-    name.textContent = task.name
-
-    list.appendChild(name)
+  tasksData.forEach((task) => {
+    console.table({ task });
   });
-}
+};
 
-export default renderList
+export default renderList;

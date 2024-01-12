@@ -1,5 +1,9 @@
 import "./css/styles.css";
 
-import renderList from "./js/list";"./js/list.js";
+import renderList from "./js/list.js";
 
-renderList()
+renderList();
+
+function getData() {
+  renderList()
+}
