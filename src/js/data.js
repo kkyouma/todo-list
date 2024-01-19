@@ -1,13 +1,14 @@
-let projectsData = [
+const projectsData = [
   {
     name: "Project-1",
     startDate: "startDate-1",
     finishDate: "finishDate-1",
     description: "Description-1",
+    color: "Color-1",
     tasks: "numberOfTasks",
   },
 ];
-let tasksData = [
+const tasksData = [
   {
     name: "Task-1",
     date: "Date-1",
@@ -30,6 +31,14 @@ class Project {
     this._description = description;
     this._color = color;
     this._tasks = [];
+    
+    projectsData.push ({
+      name: this._name,
+      startDate: this._startDate,
+      finishDate: this._finishDate,
+      description: this._description,
+      tasks: this._tasks.length,
+    })
   }
 
   get name() {
@@ -45,7 +54,7 @@ class Project {
   }
 
   addTask(name, date, description) {
-    const task = new Task(name, date, description, this.name);
+    const task = new Task(name, date, description, this);
     this.tasks.push(task);
     return task;
   }
@@ -57,6 +66,14 @@ class Task {
     this._date = date;
     this._description = description;
     this._project = project;
+    this._completed = false;
+
+    tasksData.push({
+      name: this._name,
+      startDate: this._startDate,
+      finishDate: this._finishDate,
+      description: this._description,
+    })
   }
 
   get name() {
