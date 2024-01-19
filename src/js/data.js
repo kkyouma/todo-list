@@ -1,7 +1,7 @@
 let projectsData = [
   {
     name: "Project-1",
-    initDate: "initDate-1",
+    startDate: "startDate-1",
     finishDate: "finishDate-1",
     description: "Description-1",
     tasks: "numberOfTasks",
@@ -23,13 +23,61 @@ let tasksData = [
 ];
 
 class Project {
-  constructor(name, initDate, finishDate, description) {
-    this.name = name;
-    this.initDate = initDate
-    this.finishDate =  finishDate
-    this.descriptiom = description;
-    this.tasks = [];
+  constructor(name, startDate, finishDate, description, color) {
+    this._name = name;
+    this._startDate = startDate;
+    this._finishDate = finishDate;
+    this._description = description;
+    this._color = color;
+    this._tasks = [];
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(newName) {
+    this._name = newName;
+  }
+
+  get tasks() {
+    return this._tasks;
+  }
+
+  addTask(name, date, description) {
+    const task = new Task(name, date, description, this.name);
+    this.tasks.push(task);
+    return task;
   }
 }
 
-export default tasksData;
+class Task {
+  constructor(name, date, description, project) {
+    this._name = name;
+    this._date = date;
+    this._description = description;
+    this._project = project;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(newName) {
+    this._name = newName;
+  }
+
+  complete(completed = false) {
+    this.complete = completed;
+  }
+}
+
+let project1 = new Project(
+  "Project-2",
+  "startDate-2",
+  "finishDate-2",
+  "Description-2",
+  "Red",
+);
+
+export { Project, Task, projectsData, tasksData };
